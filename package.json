@@ -1,0 +1,24 @@
+{
+  "name": "lz-birthday",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "author": "Nour Albarazi",
+  "license": "ISC",
+  "scripts": {
+    "start": "vite --open",
+    "build": "npm run fix &&  vite build",
+    "preview": "npm run build && vite preview",
+    "fix": "prettier --write ."
+  },
+  "dependencies": {
+    "sass": "^1.77.5",
+    "vite": "^5.3.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

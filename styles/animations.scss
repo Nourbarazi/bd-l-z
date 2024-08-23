@@ -1,0 +1,51 @@
+@keyframes movingSvg {
+  100% {
+    transform: scale(1) translate(0, -50%);
+  }
+}
+
+@keyframes lineAnimation {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes strokeHide {
+  90% {
+    stroke-opacity: 1;
+    stroke: $color-white;
+  }
+
+  100% {
+    stroke-opacity: 0;
+    stroke: $color-white;
+  }
+}
+
+@keyframes imgShow {
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes bannerAnimation {
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes hideBanner {
+  100% {
+    transform: translateX(-1500px);
+  }
+}
+
+// @keyframes restartBtn-Animation {
+//   100% {
+//     transform: translateX(0px);
+//   }
+// }

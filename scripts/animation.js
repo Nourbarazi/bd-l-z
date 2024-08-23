@@ -1,12 +1,11 @@
+// start SVG Image animations
 export function animateSvgImage() {
-  //js code for start/restart Animations
-
   var elements = [
     document.getElementById("path1"),
     document.getElementById("path2"),
     document.getElementById("pngImage"),
-    document.getElementById("vectroized"),
-    document.getElementById("restartBtn"),
+    document.getElementById("vectroized-img"),
+    // document.getElementById("restartBtn"),
     document.getElementById("pinkDiv"),
     document.getElementById("blueDiv"),
   ];
@@ -23,11 +22,11 @@ export function animateSvgImage() {
   }
   start();
 
-  document.getElementById("restartBtn").addEventListener(
-    "click",
-    function () {
-      start();
-    },
-    false,
-  );
+  // document.getElementById("restartBtn").addEventListener(
+  //   "click",
+  //   function () {
+  //     start();
+  //   },
+  //   false,
+  // );
 }

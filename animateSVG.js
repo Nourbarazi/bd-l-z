@@ -28,6 +28,6 @@ export function animateSvgImage() {
     function () {
       start();
     },
-    false
+    false,
   );
 }

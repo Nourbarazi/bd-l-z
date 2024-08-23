@@ -9,13 +9,16 @@
     "start": "vite --open",
     "build": "npm run fix &&  vite build",
     "preview": "npm run build && vite preview",
-    "fix": "prettier --write ."
+    "fix": "prettier --write .",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "sass": "^1.77.5",
     "vite": "^5.3.1"
   },
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "prettier": "^3.3.2"
   },
   "engines": {

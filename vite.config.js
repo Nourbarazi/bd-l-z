@@ -4,5 +4,5 @@ export default defineConfig({
   server: {
     port: 3001,
   },
-  base: "/bd-l-z/", // Ersetze 'repository-name' durch den Namen deines Repositories
+  base: "/bd-l-z/",
 });

@@ -1,6 +1,6 @@
 @keyframes movingSvgMobile {
   100% {
-    transform: scale(1) translate(0, -40%);
+    transform: scale(1) translate(0, -35%);
   }
 }
 
@@ -51,10 +51,11 @@
 }
 
 @keyframes textBackgroundMoving {
-  from {
-    background-position: center 0;
+  0% {
+    background-position: center 0%;
   }
-  to {
+
+  100% {
     background-position: center 200%;
   }
 }

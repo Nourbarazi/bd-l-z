@@ -27,7 +27,7 @@
     font-optical-sizing: auto;
     font-weight: 900;
     font-style: normal;
-    font-size: 11px;
+    font-size: 13px;
     padding: 0 5px;
     text-align: center;
     text-transform: uppercase;
@@ -43,15 +43,25 @@
 
     @media (min-width: $breakpoint-tablet) {
       font-size: 20px;
-    }
-
-    @media (min-width: $breakpoint-desktop) {
-      font-size: 28px;
       top: 50%;
       padding: 0 15px;
       left: 0;
-      transform: translate(0, 300px);
+      transform: translate(0, 250px);
       width: auto;
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      transform: translate(0, 300px);
+      font-size: 28px;
+    }
+
+    .hb-part {
+      overflow: hidden;
+      display: inline-block;
+
+      @media (max-width: $breakpoint-desktop - 1) {
+        display: block;
+      }
     }
 
     .char {
@@ -61,7 +71,11 @@
       text-fill-color: transparent;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: textBackgroundMoving 30s linear infinite;
+      background-position: center -15%;
+
+      &.animate-text-background {
+        animation: textBackgroundMoving 10s linear infinite;
+      }
     }
   }
 
@@ -152,7 +166,7 @@
   display: block;
   position: absolute;
   top: 50%;
-  transform: translate(-25%, -55%) scale(1.2);
+  transform: translate(-25%, -55%) scale(1.1);
 
   @media (min-width: $breakpoint-desktop) {
     max-height: 900px;

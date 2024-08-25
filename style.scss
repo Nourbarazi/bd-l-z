@@ -19,6 +19,132 @@
   position: relative;
 }
 
+.content {
+  position: relative;
+  height: 100%;
+
+  .hb {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $color-pink-dark;
+    font-kerning: none;
+    visibility: hidden;
+    overflow: hidden;
+    z-index: 2;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+
+    @media (min-width: $breakpoint-tablet) {
+      font-size: 20px;
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      font-size: 28px;
+      top: 40%;
+      padding: 0 15px;
+      left: 0;
+      transform: translateX(0);
+      width: auto;
+    }
+
+    .char {
+      background: url("assets/images/text-background.png");
+      background-size: auto 200%;
+      background-clip: text;
+      text-fill-color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textBackgroundMoving 30s linear infinite;
+    }
+  }
+
+  .cake {
+    &-wrapper {
+      position: absolute;
+      left: 457px;
+      transform: translate(-50%, 0);
+
+      #cake-svg {
+        height: 500px;
+        margin-top: -200px;
+
+        rect {
+          transform: translateY(-100%);
+          animation: rectMoving 1s 11.2s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+            forwards;
+        }
+      }
+
+      .fuego {
+        border-radius: 100%;
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        margin-left: -2.6px;
+        width: 6.66666667px;
+        height: 18px;
+      }
+      .fuego:nth-child(1) {
+        animation: fuego 2s 6.5s infinite;
+      }
+      .fuego:nth-child(2) {
+        animation: fuego 1.5s 6.5s infinite;
+      }
+      .fuego:nth-child(3) {
+        animation: fuego 1s 6.5s infinite;
+      }
+      .fuego:nth-child(4) {
+        animation: fuego 0.5s 6.5s infinite;
+      }
+      .fuego:nth-child(5) {
+        animation: fuego 0.2s 6.5s infinite;
+      }
+    }
+  }
+
+  .cake {
+    background: #ffffff;
+    border-radius: 10px;
+    position: absolute;
+    top: 185px;
+    left: 50%;
+    margin-left: -2.4px;
+    margin-top: -8.33333333px;
+    width: 5px;
+    height: 35px;
+    transform: translateY(-300px);
+    backface-visibility: hidden;
+    animation: in 500ms 14s ease-out forwards;
+
+    &::before,
+    &::after {
+      background: $color-pink-dark;
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2.22222222px;
+    }
+
+    &::after {
+      top: 25%;
+      left: 0;
+    }
+
+    &::before {
+      top: 45%;
+      left: 0;
+    }
+  }
+}
+
 /* === Styling and Animating SVG === */
 .vectroized-img {
   width: 100%;
@@ -27,14 +153,21 @@
   display: block;
   position: absolute;
   top: 50%;
-  transform: translate(-25%, -55%) scale(1.15);
+  transform: translate(-25%, -55%) scale(1.2);
 
   @media (min-width: $breakpoint-desktop) {
     max-height: 900px;
   }
 
   &.run-animation {
-    animation: movingSvg 5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    animation: movingSvgMobile 5s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+      forwards;
+
+    @media (min-width: $breakpoint-tablet) {
+      animation: movingSvgDesktop 5s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+        forwards;
+      transform: translate(-25%, -55%) scale(1.11);
+    }
   }
 
   #path1,

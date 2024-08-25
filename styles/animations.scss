@@ -1,6 +1,12 @@
-@keyframes movingSvg {
+@keyframes movingSvgMobile {
   100% {
-    transform: scale(1) translate(0, -50%);
+    transform: scale(1) translate(0, -40%);
+  }
+}
+
+@keyframes movingSvgDesktop {
+  100% {
+    transform: scale(1) translate(25%, -50%);
   }
 }
 
@@ -44,8 +50,37 @@
   }
 }
 
-// @keyframes restartBtn-Animation {
-//   100% {
-//     transform: translateX(0px);
-//   }
-// }
+@keyframes textBackgroundMoving {
+  from {
+    background-position: center 0;
+  }
+  to {
+    background-position: center 200%;
+  }
+}
+
+@keyframes fuego {
+  0%,
+  100% {
+    background: rgba(254, 248, 97, 0.5);
+    box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    background: rgba(255, 50, 0, 0.1);
+    box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
+    transform: translateY(-20px) scale(0);
+  }
+}
+
+@keyframes in {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes rectMoving {
+  100% {
+    transform: translateY(0);
+  }
+}

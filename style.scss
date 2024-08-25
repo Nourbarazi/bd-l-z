@@ -21,25 +21,24 @@
 
 .content {
   position: relative;
-  height: 100%;
 
   .hb {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: 900;
     font-style: normal;
-    font-size: 10px;
+    font-size: 11px;
+    padding: 0 5px;
     text-align: center;
     text-transform: uppercase;
     color: $color-pink-dark;
     font-kerning: none;
     visibility: hidden;
     overflow: hidden;
-    z-index: 2;
+    z-index: 0;
     position: absolute;
-    top: 5%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, 100px);
     width: 100%;
 
     @media (min-width: $breakpoint-tablet) {
@@ -48,10 +47,10 @@
 
     @media (min-width: $breakpoint-desktop) {
       font-size: 28px;
-      top: 40%;
+      top: 50%;
       padding: 0 15px;
       left: 0;
-      transform: translateX(0);
+      transform: translate(0, 300px);
       width: auto;
     }
 
@@ -244,26 +243,3 @@
     }
   }
 }
-
-/* === Styling and Animating Restart Btn === */
-// #restartBtn {
-//   position: absolute;
-//   bottom: 7%;
-//   left: 14%;
-//   transform: translateX(-11000px);
-//   z-index: 9;
-//   font-size: 50px;
-//   font-family: "Pacifico", cursive;
-//   color: black;
-//   cursor: pointer;
-//   transition: color 0.5s;
-// }
-
-// #restartBtn:hover {
-//   color: #ea4946;
-// }
-
-// #restartBtn.run-animation {
-//   animation: restartBtn-Animation 1s 5.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)
-//     forwards;
-// }

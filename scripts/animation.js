@@ -5,7 +5,6 @@ export function animateSvgImage() {
     document.getElementById("path2"),
     document.getElementById("pngImage"),
     document.getElementById("vectroized-img"),
-    // document.getElementById("restartBtn"),
     document.getElementById("pinkDiv"),
     document.getElementById("blueDiv"),
   ];

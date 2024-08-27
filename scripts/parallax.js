@@ -13,6 +13,8 @@ export function gsapTest() {
     });
   };
 
+  console.log(typeSplit);
+
   gsap.set(".hb-part", { visibility: "visible" });
 
   gsap.from(".hb-part .char", {

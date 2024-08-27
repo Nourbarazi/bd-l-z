@@ -21,12 +21,4 @@ export function animateSvgImage() {
     });
   }
   start();
-
-  // document.getElementById("restartBtn").addEventListener(
-  //   "click",
-  //   function () {
-  //     start();
-  //   },
-  //   false,
-  // );
 }

@@ -1,12 +1,12 @@
 @keyframes movingSvgMobile {
   100% {
-    transform: scale(1) translate(0, -35%);
+    transform: scale(1.2) translate(0%, 0%);
   }
 }
 
 @keyframes movingSvgDesktop {
   100% {
-    transform: scale(1) translate(25%, -50%);
+    transform: scale(1) translate(0%, 0%);
   }
 }
 

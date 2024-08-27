@@ -1,0 +1,88 @@
+:root {
+  /** Grid */
+  --grid-size: 100vw;
+  --grid-column-gap: 16px;
+  --grid-row-gap: 56px;
+
+  @media (min-width: $breakpoint-desktop) {
+    --grid-column-gap: 42px;
+    --grid-size: #{$container-max-size};
+  }
+}
+
+/// Returns the span size of x columns
+/// @param {number} $columns [1] Columns (if `0` will return the remaining space between the grid and the page
+/// @param {boolean} $overshoot [false] If true calculation will also include the last column gap
+
+@function grid-columns($columns: 1, $overshoot: false) {
+  @if $columns < 1 {
+    @if $overshoot == true {
+      @return calc(
+        (var(--page-size) - var(--grid-size)) / 2 + var(--grid-column-gap)
+      );
+    } @else {
+      @return calc((var(--page-size) - var(--grid-size)) / 2);
+    }
+  } @else {
+    @if $overshoot == true {
+      @return calc(
+        (var(--grid-size) - 13 * var(--grid-column-gap)) / 12 * #{$columns} + #{$columns} *
+          var(--grid-column-gap)
+      );
+    } @else {
+      @return calc(
+        (var(--grid-size) - 13 * var(--grid-column-gap)) / 12 * #{$columns} + #{$columns -
+          1} * var(--grid-column-gap)
+      );
+    }
+  }
+}
+
+/// CSS Grid Container. The container will have $columns + 2 columns. So we can place stuff before the grid starts and after the grid ends.
+/// @author Wanja Pflüger
+/// @param {number} $columns [12] Columns
+/// @example
+///   .wrapper {
+///     @include grid();
+///   }
+
+@mixin grid($columns: 12) {
+  display: grid;
+  gap: 0;
+  grid-template-columns:
+    calc((100% - var(--grid-size)) / 2) repeat(
+      #{$columns},
+      minmax(8px, calc(var(--grid-size) / #{$columns}))
+    )
+    calc((100% - var(--grid-size)) / 2);
+}
+
+/// CSS Grid Item
+/// @author Wanja Pflüger
+/// @require grid
+/// @param {number} $colStart Column start (from 0 to 12 (column 0 is outside of the grid))
+/// @param {number} $colEnd Column end (from 1 to 13 (column 13 is outside of the grid))
+/// @param {number} $rowStart [1] Row start (from 1 to ♾)
+/// @param {number} $rowEnd [$rowStart] Row end (from 1 to ♾)
+/// @example
+///   .foo {
+///     @include grid-item(0, 13); // will span all across the available space
+///     @include grid-item(3, 7); // will span from column 3 to 7
+///     @include grid-item(3, 7, 1, 3); // will span from column 3 to 7 and from row 1 to 3
+///   }
+
+@mixin grid-item($colStart, $colEnd, $rowStart: auto, $rowEnd: $rowStart) {
+  @if $rowEnd == "auto" {
+    grid-row-end: auto;
+  } @else {
+    grid-row-end: $rowEnd + 1;
+  }
+
+  grid-column-end: $colEnd + 2;
+  grid-column-start: $colStart + 1;
+  grid-row-start: $rowStart;
+}
+
+.grid {
+  @include grid();
+}

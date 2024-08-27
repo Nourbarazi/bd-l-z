@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 import SplitType from "split-type";
 
-export function gsapTest() {
+export function gsapAnimation() {
   let typeSplit = new SplitType(".hb-part", {
     types: "lines, words, chars",
     tagName: "h1",
@@ -13,8 +13,6 @@ export function gsapTest() {
     });
   };
 
-  console.log(typeSplit);
-
   gsap.set(".hb-part", { visibility: "visible" });
 
   gsap.from(".hb-part .char", {
@@ -25,5 +23,11 @@ export function gsapTest() {
     ease: "circ.out",
     stagger: 0.15,
     onComplete: startBackgroundAnimation,
+  });
+
+  gsap.to(".audio-icon-toggle", {
+    x: 0,
+    duration: 1,
+    opacity: 1,
   });
 }

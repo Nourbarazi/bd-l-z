@@ -85,3 +85,10 @@
     transform: translateY(0);
   }
 }
+
+@keyframes showAudioButton {
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

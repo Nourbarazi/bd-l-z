@@ -1,0 +1,8 @@
+.section-2 {
+  p {
+    @include grid-item(1, 12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

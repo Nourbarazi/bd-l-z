@@ -7,12 +7,14 @@ export function gsapAnimation() {
     tagName: "h1",
   });
 
+  // Background animation
   const startBackgroundAnimation = () => {
     document.querySelectorAll(".hb-part .char").forEach((char) => {
       char.classList.add("animate-text-background");
     });
   };
 
+  // Text Animation
   gsap.set(".hb-part", { visibility: "visible" });
 
   gsap.from(".hb-part .char", {
@@ -25,6 +27,7 @@ export function gsapAnimation() {
     onComplete: startBackgroundAnimation,
   });
 
+  // Audio Icon Animation
   gsap.to(".audio-icon-toggle", {
     x: 0,
     duration: 1,

@@ -1,8 +1,12 @@
 .section-2 {
-  p {
+  .content-wrapper {
     @include grid-item(1, 12);
+  }
+
+  .content {
     display: flex;
     align-items: center;
     justify-content: center;
+    // opacity: 0;
   }
 }

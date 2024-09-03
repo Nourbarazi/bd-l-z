@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 import SplitType from "split-type";
 
-export function gsapAnimation() {
+export function gsapAnimationSection1() {
   let typeSplit = new SplitType(".hb-part", {
     types: "lines, words, chars",
     tagName: "h1",

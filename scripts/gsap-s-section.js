@@ -24,7 +24,7 @@ export function gsapAnimationSection2() {
             gsap.from(entry.target.querySelectorAll(".section-2 .char"), {
               y: "100%",
               opacity: 1,
-              duration: 0.95,
+              duration: 0.8,
               ease: "power1.out",
               stagger: 0.1,
             });

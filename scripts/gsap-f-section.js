@@ -28,9 +28,47 @@ export function gsapAnimationSection1() {
   });
 
   // Audio Icon Animation
-  gsap.to(".audio-icon-toggle", {
+  let scaleAnimation;
+  let audioBtn = document.querySelector(".audio-icon-toggle");
+  gsap.to(audioBtn, {
     x: 0,
     duration: 1,
     opacity: 1,
+    onComplete: function () {
+      scaleAnimation = gsap.to(audioBtn, {
+        scale: 1.5,
+        ease: "power2.out",
+        repeat: -1,
+        duration: 1,
+      });
+    },
+  });
+
+  audioBtn.addEventListener("click", function () {
+    if (scaleAnimation) {
+      scaleAnimation.kill();
+      gsap.to(audioBtn, {
+        scale: 1,
+        duration: 0.2,
+        ease: "power2.out",
+      });
+    }
+  });
+
+  gsap.to(".section-1 .flower", {
+    x: 0,
+    duration: 3,
+    opacity: 1,
+    rotation: 360,
+    ease: "linear",
+    onComplete: function () {
+      gsap.to(".section-1 .flower", {
+        rotation: "+=360",
+        duration: 4,
+        ease: "linear",
+        repeat: -1,
+        transformOrigin: "50% 50%",
+      });
+    },
   });
 }

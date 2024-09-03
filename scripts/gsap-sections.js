@@ -53,16 +53,17 @@ export function gsapSections() {
 
   Observer.create({
     type: "wheel, pointer",
-    wheelSpeed: -1,
+    wheelSpeed: -0.8,
     onDown: () => {
       !animating && gotoSection(currentIndex - 1, -1);
     },
     onUp: () => {
       !animating && gotoSection(currentIndex + 1, 1);
     },
-    tolerance: 200,
+    tolerance: 100,
     allowClicks: true,
     preventDefault: true,
+    passive: false,
   });
 
   gotoSection(0, 1).progress(1);

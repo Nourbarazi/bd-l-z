@@ -8,44 +8,36 @@ gsap.registerPlugin(Observer);
 gsap.registerPlugin(ScrollTrigger);
 
 export function gsapAnimationSection2() {
-  //   // Zunächst den Text mit SplitType in Zeilen, Wörter und Zeichen aufteilen
-  //   let typeSplit = new SplitType(".test-1", {
-  //     types: "lines, words, chars",
-  //     tagName: "p",
-  //   });
-  //   // Observer Setup
-  //   let observer = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (entry.isIntersecting) {
-  //           // Wenn Section 2 sichtbar wird, die Animation starten
-  //           gsap.from(typeSplit, {
-  //             y: "100%",
-  //             opacity: 0,
-  //             duration: 0.85,
-  //             ease: "power1.out",
-  //             stagger: 0.1,
-  //           });
-  //         } else {
-  //           // Wenn Section 1 sichtbar wird, die Animation umkehren
-  //           if (entry.boundingClientRect.top > 0) {
-  //             // Prüfen ob es aufwärts scrollt
-  //             gsap.to(typeSplit, {
-  //               y: "100%",
-  //               opacity: 0,
-  //               duration: 0.85,
-  //               ease: "power1.out",
-  //               stagger: 0.1,
-  //             });
-  //           }
-  //         }
-  //       });
-  //     },
-  //     {
-  //       threshold: 0.5, // Trigger die Animation bei 50% Sichtbarkeit
-  //     }
-  //   );
-  //   // Den Observer auf Section 2 und Section 1 anwenden
-  //   observer.observe(document.querySelector(".section-2"));
-  //   observer.observe(document.querySelector(".section-1"));
+  document.addEventListener("DOMContentLoaded", function () {
+    // Text aufteilen mit SplitType
+    let typeSplit = new SplitType(".section-2 .content", {
+      types: "lines, words, chars",
+      tagName: "span",
+    });
+
+    // IntersectionObserver einrichten
+    let observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Animation starten, wenn der Text im Sichtbereich ist
+            gsap.from(entry.target.querySelectorAll(".section-2 .char"), {
+              y: "100%",
+              opacity: 1,
+              duration: 0.95,
+              ease: "power1.out",
+              stagger: 0.1,
+            });
+            observer.unobserve(entry.target); // Beobachtung aufheben, nachdem animiert wurde
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    // Alle Elemente mit dem Attribut 'animate' beobachten
+    document.querySelectorAll(".section-2 .content").forEach((element) => {
+      observer.observe(element);
+    });
+  });
 }

@@ -31,6 +31,11 @@ section {
       background: $color-pink;
     }
   }
+  &-3 {
+    .bg {
+      background: $color-pink-dark-alt;
+    }
+  }
 }
 
 .bg {

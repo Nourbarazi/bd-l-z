@@ -1,11 +1,9 @@
 // Animationen für Section 2
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
 import { Observer } from "gsap/Observer";
 
 gsap.registerPlugin(Observer);
-gsap.registerPlugin(ScrollTrigger);
 
 export function gsapAnimationSection2() {
   document.addEventListener("DOMContentLoaded", function () {

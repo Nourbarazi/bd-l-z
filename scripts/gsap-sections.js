@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Observer } from "gsap/Observer";
-gsap.registerPlugin(Observer);
+
+gsap.registerPlugin(ScrollTrigger, Observer);
 
 // Section Animation
 export function gsapSections() {
@@ -9,27 +11,31 @@ export function gsapSections() {
     outerWrappers = gsap.utils.toArray(".outer"),
     innerWrappers = gsap.utils.toArray(".inner"),
     currentIndex = -1,
-    animating;
-
+    animating,
+    observerEnabled = true;
   let clamp = gsap.utils.clamp(0, sections.length - 1);
-
   gsap.set(outerWrappers, { yPercent: 100 });
   gsap.set(innerWrappers, { yPercent: -100 });
-
   function gotoSection(index, direction) {
     index = clamp(index); // make sure it's valid
-
     // If they are the same, it's either the first or last slide
     if (index === currentIndex) {
       return;
     }
-
     animating = true;
     let fromTop = direction === -1,
       dFactor = fromTop ? -1 : 1,
       tl = gsap.timeline({
         defaults: { duration: 1.25, ease: "power1.inOut" },
-        onComplete: () => (animating = false),
+        onComplete: () => {
+          animating = false;
+          // Disable Observer when reaching the last section
+          if (index === sections.length - 1 && observerEnabled) {
+            Observer.getAll()[0].disable(); // Disable the observer
+            observerEnabled = false; // Mark it as disabled
+            console.log("Observer disabled");
+          }
+        },
       });
     if (currentIndex >= 0) {
       // The first time this function runs, current is -1
@@ -46,11 +52,9 @@ export function gsapSections() {
       { yPercent: 0 },
       0,
     ).fromTo(background[index], { yPercent: 15 * dFactor }, { yPercent: 0 }, 0);
-
     currentIndex = index;
     return tl;
   }
-
   Observer.create({
     type: "wheel, pointer",
     wheelSpeed: -0.8,
@@ -65,6 +69,5 @@ export function gsapSections() {
     preventDefault: true,
     passive: false,
   });
-
   gotoSection(0, 1).progress(1);
 }

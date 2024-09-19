@@ -17,15 +17,12 @@ export function gsapSections() {
   // create an observer and disable it to start
   let intentObserver = ScrollTrigger.observe({
     type: "wheel,touch",
-    onUp: () => allowScroll && gotoPanel(currentIndex - 1, false),
-    onDown: () => allowScroll && gotoPanel(currentIndex + 1, true),
     onChangeY: (self) => {
-      // For touch devices, we handle up and down based on deltaY (positive or negative)
       if (allowScroll) {
         if (self.deltaY < 0) {
-          gotoPanel(currentIndex + 1, true); // scrolling down
+          gotoPanel(currentIndex - 1, false); // Swipe up to go to the previous section
         } else if (self.deltaY > 0) {
-          gotoPanel(currentIndex - 1, false); // scrolling up
+          gotoPanel(currentIndex + 1, true); // Swipe down to go to the next section
         }
       }
     },

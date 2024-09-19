@@ -19,3 +19,14 @@ setTimeout(() => {
 
 gsapAnimationSection2();
 gsapAnimationSection3();
+
+// Disable pull-to-refresh on iOS Safari
+document.addEventListener(
+  "touchmove",
+  (event) => {
+    if (window.scrollY === 0) {
+      event.preventDefault(); // Prevent the default pull-to-refresh behavior
+    }
+  },
+  { passive: false },
+);

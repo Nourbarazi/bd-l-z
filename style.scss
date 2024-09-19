@@ -11,6 +11,11 @@
   box-sizing: border-box;
 }
 
+body,
+html {
+  overscroll-behavior: none;
+}
+
 body {
   height: 100dvh;
 }

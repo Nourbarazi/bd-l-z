@@ -19,6 +19,16 @@ export function gsapSections() {
     type: "wheel,touch",
     onUp: () => allowScroll && gotoPanel(currentIndex - 1, false),
     onDown: () => allowScroll && gotoPanel(currentIndex + 1, true),
+    onChangeY: (self) => {
+      // For touch devices, we handle up and down based on deltaY (positive or negative)
+      if (allowScroll) {
+        if (self.deltaY < 0) {
+          gotoPanel(currentIndex + 1, true); // scrolling down
+        } else if (self.deltaY > 0) {
+          gotoPanel(currentIndex - 1, false); // scrolling up
+        }
+      }
+    },
     tolerance: 10,
     preventDefault: true,
     onEnable(self) {
@@ -54,7 +64,7 @@ export function gsapSections() {
       : swipePanels[index];
     gsap.to(target, {
       yPercent: isScrollingDown ? -100 : 0,
-      duration: 0.75,
+      duration: 1.2,
     });
 
     currentIndex = index;

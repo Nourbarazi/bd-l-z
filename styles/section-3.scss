@@ -1,5 +1,6 @@
 .section-3 {
   height: 100dvh;
+  position: relative;
 
   .wrapper {
     @include grid-item(0, 13);

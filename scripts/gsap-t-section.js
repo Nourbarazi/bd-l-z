@@ -26,7 +26,7 @@ export function gsapAnimationSection3() {
       ease: "power1.inOut",
     })
     .to(
-      ".section-3 .images-wrapper .sequence-images-wrapper img",
+      ".section-3 .images-wrapper .sequence-images-wrapper .img-1",
       {
         scale: 1,
         transformOrigin: "center center",

@@ -14,7 +14,6 @@ export function gsapAnimationSection3() {
         pin: true,
         pinSpacing: false,
         scrub: 1.5,
-        markers: true,
         onEnter: () => console.log("ScrollTrigger entered!"),
         onLeave: () => console.log("ScrollTrigger left!"),
       },
@@ -32,7 +31,7 @@ export function gsapAnimationSection3() {
         transformOrigin: "center center",
         ease: "power1.inOut",
       },
-      "<",
+      "<"
     );
 
   // Return the timeline for further use if needed

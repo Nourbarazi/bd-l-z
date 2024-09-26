@@ -75,7 +75,7 @@
       left: 50%;
       transform: translate(-50%, 0);
       top: 0;
-      z-index: 1;
+      z-index: 2;
 
       #cake-svg {
         height: 300px;
@@ -172,7 +172,7 @@
       position: absolute;
       top: 32px;
       right: 24px;
-      z-index: 2;
+      z-index: 4;
     }
 
     &-icon-toggle {
@@ -221,6 +221,8 @@
     height: 100%;
     display: block;
     transform: translate(-25%, -25%) scale(1.3);
+    position: relative;
+    z-index: 3;
 
     @media (min-width: $breakpoint-desktop) {
       @include grid-item(7, 13);
@@ -360,23 +362,5 @@
 
   .info svg {
     width: 5vh;
-  }
-
-  .flower {
-    @include grid-item(1, 12);
-
-    position: absolute;
-    transition: transform 0.25s linear;
-    width: 100px;
-    height: 100px;
-    top: calc(100dvh - 150px);
-    left: grid-columns(1);
-    opacity: 0;
-
-    @media (min-width: $breakpoint-desktop) {
-      top: calc(100dvh - 225px);
-      left: grid-columns(3);
-      transform: translateX(-500px);
-    }
   }
 }

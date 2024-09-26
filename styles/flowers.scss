@@ -1,0 +1,106 @@
+.flowers {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.flower {
+  @include grid-item(1, 12);
+
+  position: absolute;
+  transition: transform 0.25s linear;
+  top: calc(100dvh - 150px);
+  opacity: 0;
+  width: 30px;
+  height: 30px;
+
+  &-1 {
+    left: grid-columns(1);
+    width: 100px;
+    height: 100px;
+    transition:
+      width 0.25s linear,
+      height 0.25s linear,
+      transform 0.25s linear;
+
+    @media (min-width: $breakpoint-desktop) {
+      top: calc(100dvh - 225px);
+      left: grid-columns(4);
+    }
+  }
+
+  &-2 {
+    right: grid-columns(1);
+    top: calc(15dvh);
+
+    @media (min-width: $breakpoint-desktop) {
+      top: 30dvh;
+      transform: translateY(-50%);
+    }
+  }
+
+  &-3 {
+    right: grid-columns(2);
+    top: calc(30dvh);
+
+    @media (min-width: $breakpoint-desktop) {
+      right: grid-columns(6);
+      top: 20dvh;
+      transform: translateY(-50%);
+    }
+  }
+
+  &-4 {
+    left: grid-columns(2);
+    top: 5dvh;
+
+    @media (min-width: $breakpoint-desktop) {
+      top: 10dvh;
+      transform: translateY(-50%);
+    }
+  }
+
+  &-5 {
+    left: grid-columns(4);
+    top: 35dvh;
+
+    @media (min-width: $breakpoint-desktop) {
+      left: grid-columns(7);
+      top: 40dvh;
+      transform: translateY(-50%);
+    }
+  }
+
+  &-6 {
+    left: calc(grid-columns(9) + 15px);
+    top: 50dvh;
+
+    @media (min-width: $breakpoint-desktop) {
+      top: 70dvh;
+      transform: translateY(-50%);
+    }
+  }
+
+  &-7 {
+    left: grid-columns(1);
+    top: 60dvh;
+
+    @media (min-width: $breakpoint-desktop) {
+      top: 90dvh;
+      transform: translateY(-50%);
+    }
+  }
+
+  &-8 {
+    right: grid-columns(2);
+    top: calc(100dvh - 150px);
+
+    @media (min-width: $breakpoint-desktop) {
+      top: 85dvh;
+      transform: translateY(-50%);
+    }
+  }
+}

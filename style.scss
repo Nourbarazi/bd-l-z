@@ -4,6 +4,7 @@
 @import "./styles/section-1.scss";
 @import "./styles/section-2.scss";
 @import "./styles/section-3.scss";
+@import "./styles/flowers.scss";
 
 * {
   margin: 0;
@@ -20,18 +21,11 @@ body {
   height: 100dvh;
 }
 
-.scroll-container {
-  position: relative;
+section {
   width: 100%;
   height: 100dvh;
+  position: relative;
   overflow: hidden;
-}
-
-section {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-overflow-scrolling: touch;
 }
 
 .section {
@@ -58,11 +52,3 @@ section {
   top: 0;
   width: 100%;
 }
-
-// .outer,
-// .inner {
-//   width: 100%;
-//   height: 100%;
-//   overflow: hidden;
-//   -webkit-overflow-scrolling: touch;
-// }

@@ -1,11 +1,107 @@
 .section-2 {
+  .bg {
+    padding: 80px 0;
+    row-gap: 56px;
+    column-gap: 16px;
+  }
+
+  .content-marquee {
+    @include grid-item(1, 12, 1, 1);
+  }
+
   .content-wrapper {
-    @include grid-item(1, 12);
+    display: flex;
   }
 
   .content {
-    .line {
-      overflow: hidden;
+    font-family: "Montserrat", sans-serif;
+    background-color: $color-yellow;
+    padding: 24px;
+    border-radius: 8px;
+    white-space: nowrap;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 30px;
+    font-kerning: none;
+    color: $color-pink-dark;
+  }
+
+  .container {
+    @include grid-item(1, 12, 2, 2);
+    position: relative;
+    display: flex;
+    justify-self: flex-start;
+    width: 100vh;
+
+    .horizontal {
+      &-scroll {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-grow: 1;
+
+        .image {
+          &-wrapper {
+            display: flex;
+            overflow: hidden;
+          }
+
+          &-1 {
+            border-radius: 32px 0 0 32px;
+          }
+
+          &-2 {
+            clip-path: url("#tenant-sm-3");
+          }
+
+          &-3 {
+            clip-path: url("#tenant-sm-6");
+          }
+
+          &-4 {
+            clip-path: url("#event-large-1");
+          }
+
+          &-5 {
+            border-radius: 8px;
+          }
+
+          &-6 {
+            clip-path: url("#tenant-sm-7");
+          }
+
+          &-8 {
+            clip-path: url("#tenant-sm-2");
+          }
+        }
+
+        img {
+          object-fit: cover;
+          object-position: center;
+          width: 300px;
+          aspect-ratio: 4/5;
+          margin-right: 32px;
+
+          @media (min-width: $breakpoint-desktop) {
+            margin-right: 56px;
+          }
+
+          @media (min-width: $breakpoint-desktop) {
+            width: 400px;
+          }
+        }
+      }
+    }
+  }
+
+  svg {
+    &.svg-sprite {
+      height: 0;
+      left: -9999999px;
+      position: absolute;
+      top: -9999999px;
+      width: 0;
     }
   }
 }

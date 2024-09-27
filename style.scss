@@ -4,6 +4,7 @@
 @import "./styles/section-1.scss";
 @import "./styles/section-2.scss";
 @import "./styles/section-3.scss";
+@import "./styles/section-4.scss";
 @import "./styles/flowers.scss";
 
 * {
@@ -42,6 +43,12 @@ section {
   &-3 {
     .bg {
       background: $color-pink-light;
+    }
+  }
+
+  &-4 {
+    .bg {
+      background: $color-pink-light-alt;
     }
   }
 }

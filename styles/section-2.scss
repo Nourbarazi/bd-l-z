@@ -7,6 +7,7 @@
 
   .content-marquee {
     @include grid-item(1, 12, 1, 1);
+    align-self: flex-start;
   }
 
   .content-wrapper {
@@ -25,6 +26,7 @@
     font-size: 30px;
     font-kerning: none;
     color: $color-pink-dark;
+    margin-right: 30px;
   }
 
   .container {

@@ -197,8 +197,7 @@ export function gsapAnimation() {
     window.addEventListener("resize", resizeCanvas);
 
     const frameCount = 15; // Die Anzahl der Frames, die du hast
-    const currentFrame = (index) =>
-      `assets/images/sequences/output-${index + 1}.png`;
+    const currentFrame = (index) => `assets/images/output-${index + 1}.png`;
     // Passe den Pfad zu deinen lokalen Bildern an. Ersetze 'path/to/your/images' mit deinem tatsächlichen Verzeichnis.
 
     const images = [];

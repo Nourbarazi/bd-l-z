@@ -45,6 +45,22 @@
         object-fit: cover;
         object-position: center center;
       }
+
+      &-1 {
+        transform-origin: center center;
+
+        @media (max-width: $breakpoint-desktop - 1) {
+          display: none;
+        }
+      }
+
+      &-2 {
+        transform-origin: center 150%;
+
+        @media (min-width: $breakpoint-desktop) {
+          display: none;
+        }
+      }
     }
   }
 }

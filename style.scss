@@ -16,6 +16,8 @@
 body,
 html {
   overscroll-behavior: none;
+  background: $color-yellow;
+  transition: background 0.5s ease;
 }
 
 body {
@@ -33,22 +35,6 @@ section {
   &-1 {
     .bg {
       background: $color-yellow;
-    }
-  }
-  &-2 {
-    .bg {
-      background: $color-pink;
-    }
-  }
-  &-3 {
-    .bg {
-      background: $color-pink-dark;
-    }
-  }
-
-  &-4 {
-    .bg {
-      background: $color-pink-dark;
     }
   }
 }

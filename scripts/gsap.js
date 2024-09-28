@@ -6,13 +6,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 export function gsapAnimation() {
-  //   const sections = document.querySelectorAll("section");
-
   //   create the smooth scroller FIRST!
   const smoother = ScrollSmoother.create({
     wrapper: ".scroll-wrapper",
     content: ".scroll-content",
-    smooth: 1.5,
+    smooth: 1,
     normalizeScroll: true,
     ignoreMobileResize: true,
     effects: true,
@@ -20,6 +18,7 @@ export function gsapAnimation() {
   });
 
   ScrollTrigger.normalizeScroll(true);
+  ScrollTrigger.refresh();
 
   const fSectionAnimation = () => {
     let typeSplit = new SplitType(".hb-part", {

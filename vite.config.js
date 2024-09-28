@@ -5,12 +5,4 @@ export default defineConfig({
     port: 3001,
   },
   base: "/bd-l-z/",
-  assetsInclude: ["**/*.png", "**/*.jpg"],
-  build: {
-    rollupOptions: {
-      output: {
-        assetFileNames: "assets/[name].[ext]",
-      },
-    },
-  },
 });

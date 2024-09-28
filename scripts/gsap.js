@@ -224,11 +224,6 @@ export function gsapAnimation() {
 
     images[0].onload = render;
 
-    // function render() {
-    //   context.clearRect(0, 0, canvas.width, canvas.height);
-    //   context.drawImage(images[animationObj.frame], 0, 0);
-    // }
-
     function render() {
       context.clearRect(0, 0, canvas.width, canvas.height);
 

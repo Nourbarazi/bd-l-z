@@ -51,6 +51,17 @@ export function gsapAnimation() {
         ease: "power2.inOut",
       },
     });
+
+    gsap.to("body", {
+      backgroundColor: "#ffdbaa",
+      scrollTrigger: {
+        trigger: ".section-5",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1,
+        ease: "power2.inOut",
+      },
+    });
   };
 
   gsap.to(".flower", {

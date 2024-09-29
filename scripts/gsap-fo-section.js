@@ -1,6 +1,7 @@
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SplitType from "split-type";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -79,6 +80,24 @@ export function gsapAnimationSection4() {
       );
     }
   };
+
+  let typeSplit = new SplitType(".section-4 .smile", {
+    types: "lines, words, chars",
+    tagName: "span",
+  });
+
+  gsap.from(".section-4 .word", {
+    y: "100%",
+    opacity: 1,
+    duration: 0.5,
+    ease: "power1.out",
+    stagger: 0.1,
+    scrollTrigger: {
+      trigger: ".section-4",
+      start: "bottom bottom",
+      toggleActions: "play none none none",
+    },
+  });
 
   sequenceAnimation();
 }
